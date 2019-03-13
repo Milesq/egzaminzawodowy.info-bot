@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "gulp": "^4.0.0"
+  },
+  "devDependencies": {
+    "gulp-cleanhtml": "^1.0.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "jasmine": "^3.3.1",
+    "karma": "^4.0.1",
+    "karma-jasmine": "^2.0.1",
+    "node-sass": "^4.11.0"
+  }
+}
