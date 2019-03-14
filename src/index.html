@@ -9,6 +9,30 @@
 </head>
 
 <body>
+    <form class="settings">
+        <label class="settings-question">
+            <span>% poprawnych odpowiedzi:</span>
+            <input
+                min="0"
+                max="100"
+                value="51"
+                type="number"
+                name="min-percents"
+                id="min-percents">
+        </label>
+        <label class="settings-question">
+            <span>Liczba arkuszy do wykonania za jednym razem</span>
+            <input
+                min="1"
+                value="1"
+                type="number"
+                name="iterations"
+                id="iterations">
+        </label>
+        <label>
+            <input type="submit" value="Zacznij">
+        </label>
+    </form>
     <script src="js/main.js"></script>
 </body>
 
