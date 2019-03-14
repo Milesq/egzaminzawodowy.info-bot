@@ -1,0 +1,55 @@
+@mixin prettyInput {
+  border: none;
+
+  & > input {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background: rgba(255, 255, 255, .1);
+    border: none;
+    border-radius: 4px;
+
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 30px;
+
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: #e8eeef;
+    color:#8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+
+    &:focus{
+      background: #d2d9dd;
+    }
+  }
+}
+
+@mixin prettyButton {
+  display: inline-block;
+  position: relative;
+  padding: 18px 34.2px;
+  top: 0;
+  font-size: 20px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
+  background: rgba( 22, 230, 137, 1 );
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  transform: translateZ(0);
+  transition: all 0.2s ease;
+
+  &:hover {
+    top: -10px;
+    box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
+    transform: rotateX(20deg);
+  }
+
+  &:active {
+    top: 0px;
+    box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+    background: rgba( 20, 224, 133, 1 );
+  }
+}
