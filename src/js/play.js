@@ -13,5 +13,9 @@ function play() {
 }
 
 chrome.runtime.onMessage.addListener(() => {
-    setTimeout(play, 500);
+    setTimeout(play, 700);
 });
+
+// TODO: % poprawnych odpowiedzi
+// TODO: błąd z href'em (brak takiego pytania w bazie)
+// TODO: wysyłanie testu

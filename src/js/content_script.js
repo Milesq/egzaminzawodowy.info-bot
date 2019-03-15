@@ -15,18 +15,22 @@ function getCorrect(ask) {
         fetch(API + '?q=' + ask)
             .then(x => x.text())
             .then(resp => {
-                let doc = new DOMParser;
-                doc = doc.parseFromString(resp, 'text/html');
-                doc = doc.querySelector('.jump-link a').href.replace('#more', '');
+                try {
+                    let doc = new DOMParser;
+                    doc = doc.parseFromString(resp, 'text/html');
+                    doc = doc.querySelector('.jump-link a').href.replace('#more', '');
 
-                fetch(API + '?link=' + doc)
-                    .then(x => x.text())
-                    .then(resp => {
-                        doc = new DOMParser;
-                        doc = doc.parseFromString(resp, 'text/html');
-                        [, doc] = doc.querySelectorAll('b');
-                        resolve(doc.innerHTML);
-                    });
+                    fetch(API + '?link=' + doc)
+                        .then(x => x.text())
+                        .then(resp => {
+                            doc = new DOMParser;
+                            doc = doc.parseFromString(resp, 'text/html');
+                            [, doc] = doc.querySelectorAll('b');
+                            resolve(doc.innerHTML);
+                        });
+                } catch (err) {
+                    resolve('A');
+                }
             });
     });
 }
