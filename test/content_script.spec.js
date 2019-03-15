@@ -10,8 +10,8 @@ describe('getCorrect function', () => {
 
     it('return correct answers', done => {
         const answers = [
-            ['W systemie Windows wymagania co do złożoności hasła należy określić w', 'D'],
-            ['Materiałem eksploatacyjnym w drukarce laserowej jest', 'B']
+            ['W systemie Windows wymagania co do złożoności hasła należy określić w', 'zasadach zabezpieczeń lokalnych.'],
+            ['Materiałem eksploatacyjnym w drukarce laserowej jest', 'kaseta z tonerem.']
         ];
 
         const promises = [];
