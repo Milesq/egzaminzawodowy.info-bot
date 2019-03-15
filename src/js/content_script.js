@@ -31,21 +31,19 @@ function getCorrect(ask) {
     });
 }
 
-// if (typeof TESTS === 'undefined') {
-//     let ask = document.querySelector('.intertext1 td').innerText;
-//     [, ask] = ask.match(/\s(.+)\n/);
+if (typeof TESTS === 'undefined') {
+    let ask = document.querySelector('.intertext1 td').innerText;
+    [, ask] = ask.match(/\s(.+)\n/);
 
-//     getCorrect(ask)
-//         .then(correct => {
-//             correct = ({
-//                 A: 0,
-//                 B: 1,
-//                 C: 2,
-//                 D: 3
-//             })[correct];
+    getCorrect(ask)
+        .then(correct => {
+            correct = ({
+                A: 0,
+                B: 1,
+                C: 2,
+                D: 3
+            })[correct];
 
-//             console.log(correct);
-
-//             // reply(correct);
-//         });
-// }
+            reply(correct);
+        });
+}
