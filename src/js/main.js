@@ -12,7 +12,8 @@ function openUrl(url) {
 
 document.querySelector('.settings').addEventListener('submit', ev => {
     ev.preventDefault();
-    const correctPercents = document.getElementById('min-percents').value;
+    const max = document.getElementById('max-percents').value;
+    const min = document.getElementById('min-percents').value;
     let iters = document.getElementById('iterations').value;
 
     // eslint-disable-next-line
@@ -27,7 +28,7 @@ document.querySelector('.settings').addEventListener('submit', ev => {
                 return;
             }
 
-            play(correctPercents);
+            play(Math.floor(Math.random() * (max - min) + min));
         });
     }
 });
