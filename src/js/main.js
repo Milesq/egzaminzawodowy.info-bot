@@ -28,7 +28,9 @@ document.querySelector('.settings').addEventListener('submit', ev => {
                 return;
             }
 
-            play(Math.floor(Math.random() * (max - min) + min));
+            chrome.runtime.sendMessage({
+                percents: Math.floor(Math.random() * (max - min) + min)
+            });
         });
     }
 });

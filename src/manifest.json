@@ -11,8 +11,11 @@
     },
     "web_accessible_resources": [
         "css/style.css",
-        "js/main.js",
-        "js/play.js"
+        "js/main.js"
     ],
+    "background": {
+        "scripts": ["js/play.js"],
+        "persistent": false
+    },
     "manifest_version": 2
 }
