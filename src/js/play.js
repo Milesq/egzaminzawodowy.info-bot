@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
-function play(percents) {
+function play() {
     chrome.tabs.query({
         url: 'https://www.testy.egzaminzawodowy.info/question.php*'
     }, ([tab]) => {
@@ -12,6 +12,6 @@ function play(percents) {
     });
 }
 
-chrome.runtime.onMessage.addListener((req) => {
-    play(req.percents);
+chrome.runtime.onMessage.addListener(() => {
+    setTimeout(play, 500);
 });

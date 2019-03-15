@@ -31,6 +31,7 @@ function getCorrect(ask) {
     });
 }
 
+console.log('ok');
 if (typeof TESTS === 'undefined') {
     let ask = document.querySelector('.intertext1 td').innerText;
     [, ask] = ask.match(/\s(.+)\n/);
@@ -44,6 +45,8 @@ if (typeof TESTS === 'undefined') {
                 D: 3
             })[correct];
 
+            // eslint-disable-next-line
+            chrome.runtime.sendMessage(chrome.runtime.id, 'ok');
             reply(correct);
         });
 }
