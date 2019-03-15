@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
         "test/helpers/sinon-chrome.lib.js",
         "test/**/*.spec.js",
+        "src/js/content_script.js",
         "src/js/play.js"
     ],
 

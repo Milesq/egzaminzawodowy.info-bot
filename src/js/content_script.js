@@ -6,11 +6,8 @@ function reply(correct = 0) {
     document.querySelectorAll('.button')[2].click();
 }
 
-function getCorrect() {
+function getCorrect(ask) {
     return new Promise((resolve) => {
-        let ask = document.querySelector('.intertext1 td').innerText;
-        [, ask] = ask.match(/\s(.+)\n/);
-
         while (/\s/.test(ask)) {
             ask = ask.replace(' ', '+');
         }
@@ -31,15 +28,24 @@ function getCorrect() {
                         resolve(doc.innerHTML);
                     });
             });
-
-        /*
-        const resps = [...document.querySelectorAll('.test table tr')].slice(1, -1);
-        resps.forEach(el => {
-            const childs = el.childNodes;
-            const response = childs[3].innerText;
-            // const { id } = childs[1].childNodes[1];
-        }); */
     });
 }
 
-getCorrect().then(console.log);
+// if (typeof TESTS === 'undefined') {
+//     let ask = document.querySelector('.intertext1 td').innerText;
+//     [, ask] = ask.match(/\s(.+)\n/);
+
+//     getCorrect(ask)
+//         .then(correct => {
+//             correct = ({
+//                 A: 0,
+//                 B: 1,
+//                 C: 2,
+//                 D: 3
+//             })[correct];
+
+//             console.log(correct);
+
+//             // reply(correct);
+//         });
+// }

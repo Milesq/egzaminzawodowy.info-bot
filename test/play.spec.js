@@ -1,3 +1,4 @@
+/* eslint-disable */
 describe('play function', () => {
     it('is function', () => {
         expect(play).toBeDefined();
