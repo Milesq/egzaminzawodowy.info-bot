@@ -1,9 +1,10 @@
-describe('hello function', () => {
-    it('exists', () => {
-        expect(typeof hello).toBe(typeof (() => { }));
+describe('play function', () => {
+    it('is function', () => {
+        expect(play).toBeDefined();
+        expect(typeof play).toBe(typeof (() => {}));
     });
 
-    it('return "hello world"', () => {
-        expect(hello()).toBe('hello world');
+    it('passed one argument', () => {
+        expect(play.length).toBe(1);
     });
 });

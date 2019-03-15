@@ -15,8 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-		"test/*.spec.js",
-		"src/js/*.js"
+        "test/helpers/sinon-chrome.lib.js",
+        "test/**/*.spec.js",
+        "src/js/play.js"
     ],
 
 

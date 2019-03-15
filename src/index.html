@@ -11,7 +11,7 @@
 <body>
     <form class="settings">
         <label class="settings__question settings__element">
-            <span>% poprawnych odpowiedzi:</span>
+            <span>Minimalny % poprawnych odpowiedzi:</span>
             <fieldset class="settings__input">
                 <input
                     min="0"
@@ -20,6 +20,18 @@
                     type="number"
                     name="min-percents"
                     id="min-percents">
+            </fieldset>
+        </label>
+        <label class="settings__question settings__element">
+            <span>Maksymalny % poprawnych odpowiedzi:</span>
+            <fieldset class="settings__input">
+                <input
+                    min="0"
+                    max="100"
+                    value="95"
+                    type="number"
+                    name="max-percents"
+                    id="max-percents">
             </fieldset>
         </label>
         <label class="settings__question settings__element">
@@ -37,6 +49,7 @@
             <input class="settings__submit" type="submit" value="Zacznij">
         </label>
     </form>
+    <script src="js/play.js"></script>
     <script src="js/main.js"></script>
 </body>
 

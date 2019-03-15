@@ -1,9 +1,5 @@
 /* eslint-disable no-undef */
 
-function play(correctPercent) {
-    console.log(`Uzyskano ${correctPercent} procent!`);
-}
-
 function openUrl(url) {
     chrome.tabs.query({
         active: true
