@@ -1,7 +1,20 @@
 const API = 'https://my-bot-helper.herokuapp.com/';
+function areEqual(str, comp) {
+    let strs = [str.split(' '), comp.split(' ')];
+    if (strs[0].length > strs[1].length) {
+        strs = strs.reverse();
+    }
 
-function reply(correct) {
+    strs[0].forEach(toStrike => {
+        strs[1] = strs[1].filter(word => word !== toStrike);
+    });
+
+    return strs[1].length;
+}
+
+function reply(correctAnswer) {
     let resps = [...document.querySelectorAll('.test table tr label')].slice(0, -1);
+    let correct = correctAnswer;
 
     try {
         correct = resps
@@ -10,7 +23,12 @@ function reply(correct) {
         correct = 0;
     }
 
-    correct = correct == -1 ? 0 : correct;
+    if (correct === -1) {
+        let answers = resps.map(x => x.innerHTML);
+        answers = answers.map((answer, i) => [areEqual(answer, correctAnswer), i]).sort();
+
+        [[, correct]] = answers;
+    }
 
     resps = [...document.querySelectorAll('.test table tr')].slice(1, -1);
     resps[correct].childNodes[1].childNodes[1].click(); // correct answer
@@ -22,7 +40,7 @@ function reply(correct) {
 }
 
 function getCorrect(ask) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         while (/\s/.test(ask)) {
             ask = ask.replace(' ', '+');
         }
