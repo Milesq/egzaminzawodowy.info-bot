@@ -10,24 +10,11 @@ function openUrl(url) {
     });
 }
 
-function rand(min, max) {
-    min = parseInt(min, 10);
-    max = parseInt(max, 10);
-
-    if (min > max) {
-        const tmp = min;
-        min = max;
-        max = tmp;
-    }
-
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
 if (typeof TESTS === 'undefined') {
     document.querySelector('.settings').addEventListener('submit', ev => {
         ev.preventDefault();
-        const max = document.getElementById('max-percents').value;
-        const min = document.getElementById('min-percents').value;
+
+        const percents = document.getElementById('percents').value;
 
         // eslint-disable-next-line
         chrome.tabs.query({
@@ -40,8 +27,8 @@ if (typeof TESTS === 'undefined') {
                 return;
             }
 
-            chrome.runtime.sendMessage({
-                percents: rand(min, max)
+            chrome.storage.local.set({ percents }, () => {
+                chrome.runtime.sendMessage('ok');
             });
         });
     });

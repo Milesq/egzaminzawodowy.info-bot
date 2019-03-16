@@ -62,11 +62,21 @@ if (typeof TESTS === 'undefined') {
     let ask = document.querySelector('.intertext1 td').innerText;
     [, ask] = ask.match(/\s(.+)\n/);
 
-    console.log('next');
-    getCorrect(ask)
-        .then(correct => {
+    // eslint-disable-next-line
+    chrome.storage.local.get(['percents'], res => {
+        console.log('next');
+
+        if (Math.random() * 100 > res.percents) {
             // eslint-disable-next-line
             chrome.runtime.sendMessage(chrome.runtime.id, 'ok');
-            reply(correct);
-        });
+            reply(0);
+        } else {
+            getCorrect(ask)
+                .then(correct => {
+                    // eslint-disable-next-line
+                    chrome.runtime.sendMessage(chrome.runtime.id, 'ok');
+                    reply(correct);
+                });
+        }
+    });
 }
