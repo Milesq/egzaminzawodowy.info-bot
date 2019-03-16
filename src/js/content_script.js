@@ -10,6 +10,8 @@ function reply(correct) {
         correct = 0;
     }
 
+    correct = correct == -1 ? 0 : correct;
+
     resps = [...document.querySelectorAll('.test table tr')].slice(1, -1);
     resps[correct].childNodes[1].childNodes[1].click(); // correct answer
 
