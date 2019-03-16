@@ -3,13 +3,18 @@ const API = 'https://my-bot-helper.herokuapp.com/';
 function reply(correct) {
     let resps = [...document.querySelectorAll('.test table tr label')].slice(0, -1);
 
-    correct = resps
-        .findIndex(el => el.innerHTML.replace('.', '') === correct.replace('.', ''));
+    try {
+        correct = resps
+            .findIndex(el => el.innerHTML.replace('.', '') === correct.replace('.', ''));
+    } catch (err) {
+        correct = 0;
+    }
+
     resps = [...document.querySelectorAll('.test table tr')].slice(1, -1);
     resps[correct].childNodes[1].childNodes[1].click(); // correct answer
 
     let sender = document.querySelectorAll('.button');
-    sender = (sender[2].disabled) ? sender[3] : sender[2];
+    sender = (sender[1].disabled) ? sender[2] : sender[1];
 
     sender.click();
 }
