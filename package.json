@@ -12,7 +12,7 @@
         "jasmine": "^3.3.1",
         "karma": "^4.0.1",
         "karma-jasmine": "^2.0.1",
-        "node-sass": "^4.11.0"
+        "node-sass": "^4.13.1"
     },
     "dependencies": {}
 }
